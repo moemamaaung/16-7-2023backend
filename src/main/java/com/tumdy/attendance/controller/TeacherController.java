@@ -50,7 +50,7 @@ public class TeacherController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
 		teacherService.deleteByTeacherId(id);
-		return new ResponseEntity<String>("Delete id = "+id,HttpStatus.OK);
+		return new ResponseEntity<Number>(id,HttpStatus.OK);
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -58,7 +58,7 @@ public class TeacherController {
 		Optional<Teacher> teacherOptional = teacherService.findByTeacherId(id);
 		
 		if(teacherOptional.isEmpty())
-			return new ResponseEntity<String>("Teacher with id = "+id+"is not found",HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("Delete id"+id,HttpStatus.NOT_FOUND);
 		
 		return new ResponseEntity<Teacher>(teacherOptional.get(),HttpStatus.OK);
 	}
