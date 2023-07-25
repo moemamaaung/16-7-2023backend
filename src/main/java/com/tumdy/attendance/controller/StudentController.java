@@ -14,53 +14,54 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.tumdy.attendance.domain.Teacher;
-import com.tumdy.attendance.service.TeacherService;
+
+import com.tumdy.attendance.domain.Student;
+import com.tumdy.attendance.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/teacher")
+@RequestMapping("/api/student")
 @CrossOrigin(origins = "http://localhost:3000")
-public class TeacherController {
+public class StudentController {
 	
-	private final TeacherService teacherService;
+	private final StudentService studentService;
 	
 	@GetMapping("/all")
-	public List<Teacher> getAllTeacher(){
-		return teacherService.findAll();
+	public List<Student> getAllStudent(){
+		return studentService.findAll();
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<?> createTeacher(@RequestBody Teacher teacher){
+	public ResponseEntity<?> createStudent(@RequestBody Student student){
 		
-		Teacher savedTeacher = teacherService.createTeacher(teacher);
+		Student savedStudent = studentService.createStudent(student);
 		
-		return new ResponseEntity<Teacher>(savedTeacher,HttpStatus.CREATED);
+		return new ResponseEntity<Student>(savedStudent,HttpStatus.CREATED);
 	}
 	
 	@PatchMapping("/update")
-	public ResponseEntity<?> updateTeacher(@RequestBody Teacher teacher){
-		Teacher updatedTeacher = teacherService.updateTeaher(teacher);
-		return new ResponseEntity<Teacher>(updatedTeacher,HttpStatus.OK);
+	public ResponseEntity<?> updateStudent(@RequestBody Student student){
+		Student updatedStudent = studentService.updateStudent(student);
+		return new ResponseEntity<Student>(updatedStudent,HttpStatus.OK);
 	}
 	
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable Long id){
-		teacherService.deleteByTeacherId(id);
+		studentService.deleteByStudentId(id);
 		return new ResponseEntity<Number>(id,HttpStatus.OK);
 	}
 	
 	@GetMapping("/id/{id}")
 	public ResponseEntity<?> findById(@PathVariable Long id){
-		Optional<Teacher> teacherOptional = teacherService.findByTeacherId(id);
+		Optional<Student> studentOptional = studentService.findByStudentId(id);
 		
-		if(teacherOptional.isEmpty())
+		if(studentOptional.isEmpty())
 			return new ResponseEntity<String>("Delete id"+id,HttpStatus.NOT_FOUND);
 		
-		return new ResponseEntity<Teacher>(teacherOptional.get(),HttpStatus.OK);
+		return new ResponseEntity<Student>(studentOptional.get(),HttpStatus.OK);
 	}
 	
 

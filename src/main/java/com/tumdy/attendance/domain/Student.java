@@ -1,7 +1,6 @@
 package com.tumdy.attendance.domain;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -17,24 +16,27 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Student {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	 @NotBlank(message = "Your name should not be blank")
+	@NotBlank(message = "Your name should not be blank")
 	private String fullname;
-	private String phno;
 	
-	 @NotBlank(message = "Your Email should not be blank")
+	@NotBlank(message = "Your rollno should not be blank")
+	private String rollno;
+	private String phno;
+	private String address;
 	private String username;
-//	private String qualification;
-	private String position;
+//	private String fathername;
 	private String nrc;
 //	private String dob;
 	
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
+	
 
 }
