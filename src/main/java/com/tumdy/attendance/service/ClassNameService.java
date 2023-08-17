@@ -1,21 +1,21 @@
 package com.tumdy.attendance.service;
 
 import java.util.List;
-
 import java.util.Optional;
 
-import com.tumdy.attendance.domain.ClassName;
+
+import com.tumdy.attendance.domain.YearClass;
 
 public interface ClassNameService {
-	ClassName createClass(ClassName className);
+	YearClass createClass(YearClass className);
 	
-	List<ClassName> findAll();
+	List<YearClass> findAll();
 	
-	Optional<ClassName> findByClassId(Long id);
+	Optional<YearClass> findByClassId(Long id);
 	
-	Optional<ClassName> findByCodeNo(String codeNo);
+	Optional<YearClass> findByCodeno(String codeNo);
 	
-	ClassName updateClass(ClassName className);
+	YearClass updateClass(YearClass className);
 	
 	void deleteById(Long id);
 

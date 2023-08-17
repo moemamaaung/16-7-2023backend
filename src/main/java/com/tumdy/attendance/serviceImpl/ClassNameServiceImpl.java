@@ -2,8 +2,12 @@ package com.tumdy.attendance.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.stereotype.Service;
-import com.tumdy.attendance.domain.ClassName;
+
+
+import com.tumdy.attendance.domain.YearClass;
+
 import com.tumdy.attendance.exception.CodenoAlreadyExistsException;
 import com.tumdy.attendance.repository.ClassNameRepository;
 import com.tumdy.attendance.service.ClassNameService;
@@ -24,8 +28,8 @@ public class ClassNameServiceImpl implements ClassNameService{
 
 	@Override
 	
-	public ClassName createClass(ClassName className)throws CodenoAlreadyExistsException {
-		Optional<ClassName> classOpt = findByCodeNo(className.getCodeNo());
+	public YearClass createClass(YearClass className)throws CodenoAlreadyExistsException {
+		Optional<YearClass> classOpt = findByCodeno(className.getCodeNo());
 		
 		if(classOpt.isPresent()) {
 			throw new CodenoAlreadyExistsException("Codeno already exists!");
@@ -35,19 +39,19 @@ public class ClassNameServiceImpl implements ClassNameService{
 	}
 
 	@Override
-	public List<ClassName> findAll() {
+	public List<YearClass> findAll() {
 		// TODO Auto-generated method stub
-		return (List<ClassName>) classNameRepository.findAll();
+		return (List<YearClass>) classNameRepository.findAll();
 	}
 
 	@Override
-	public Optional<ClassName> findByClassId(Long id) {
+	public Optional<YearClass> findByClassId(Long id) {
 		// TODO Auto-generated method stub
 		return classNameRepository.findById(id);
 	}
 
 	@Override
-	public ClassName updateClass(ClassName className) {
+	public YearClass updateClass(YearClass className) {
 		// TODO Auto-generated method stub
 		return classNameRepository.save(className);
 	}
@@ -60,7 +64,7 @@ public class ClassNameServiceImpl implements ClassNameService{
 	}
 
 	@Override
-	public Optional<ClassName> findByCodeNo(String codeNo) {
+	public Optional<YearClass> findByCodeno(String codeNo) {
 		// TODO Auto-generated method stub
 		return classNameRepository.findByCodeNo(codeNo);
 	}

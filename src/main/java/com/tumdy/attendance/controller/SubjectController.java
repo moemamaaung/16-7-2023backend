@@ -33,17 +33,17 @@ public class SubjectController {
 		return subjectService.findAll();
 	}
 	
-	@PostMapping("/create")
-	public ResponseEntity<?> createSubject(@RequestBody Subject subject){
+	@PostMapping("/create/{userId}/{classId}")
+	public ResponseEntity<?> createSubject(@RequestBody Subject subject,@PathVariable Long userId,@PathVariable Long classId){
 		
-		Subject savedSubject = subjectService.createSubject(subject);
+		Subject savedSubject = subjectService.createSubject(subject,userId,classId);
 		
 		return new ResponseEntity<Subject>(savedSubject,HttpStatus.CREATED);
 	}
 	
-	@PatchMapping("/update")
-	public ResponseEntity<?> updateSubject(@RequestBody Subject subject){
-		Subject updatedSubject = subjectService.updateSubject(subject);
+	@PatchMapping("/update/{userId}/{classId}")
+	public ResponseEntity<?> updateSubject(@RequestBody Subject subject,@PathVariable Long userId,@PathVariable Long classId){
+		Subject updatedSubject = subjectService.updateSubject(subject,userId,classId);
 		return new ResponseEntity<Subject>(updatedSubject,HttpStatus.OK);
 	}
 	

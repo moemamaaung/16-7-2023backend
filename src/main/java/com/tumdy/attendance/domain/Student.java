@@ -6,7 +6,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,10 +24,10 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message = "Your name should not be blank")
+
 	private String fullname;
 	
-	@NotBlank(message = "Your rollno should not be blank")
+
 	private String rollno;
 	private String phno;
 	private String address;
@@ -38,5 +39,8 @@ public class Student {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
+	@ManyToOne
+	@JoinColumn(name = "classId")
+	private YearClass yearClass;
 
 }

@@ -8,9 +8,9 @@ public interface SubjectService {
 	
 	List<Subject> findAll();
 	
-	Subject createSubject(Subject subject);
+	Subject createSubject(Subject subject,Long userId,Long classId);
 	
-	Subject updateSubject(Subject subject);
+	Subject updateSubject(Subject subject,Long userId,Long classId);
 	
 	Optional<Subject> findBySubjectId(Long id);
 	

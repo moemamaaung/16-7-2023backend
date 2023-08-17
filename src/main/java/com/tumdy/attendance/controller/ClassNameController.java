@@ -1,7 +1,6 @@
 package com.tumdy.attendance.controller;
 
 import java.util.List;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tumdy.attendance.domain.ClassName;
+
+import com.tumdy.attendance.domain.YearClass;
 import com.tumdy.attendance.service.ClassNameService;
 
 @RestController
@@ -34,44 +34,44 @@ public class ClassNameController {
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<ClassName> createClass(@RequestBody ClassName className){
-		ClassName createdClass = classNameService.createClass(className);
-		return new ResponseEntity<ClassName>(createdClass, HttpStatus.CREATED);
+	public ResponseEntity<YearClass> createClass(@RequestBody YearClass className){
+		YearClass createdClass = classNameService.createClass(className);
+		return new ResponseEntity<YearClass>(createdClass, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/all")
-	public List<ClassName> findAllAcademicyear(){
+	public List<YearClass> findAllAcademicyear(){
 		return classNameService.findAll();
 		
 	}
 	
 	@GetMapping("/id/{id}")
 	public ResponseEntity<?> findById(@PathVariable Long id){
-		Optional<ClassName> classOpt = classNameService.findByClassId(id);
+		Optional<YearClass> classOpt = classNameService.findByClassId(id);
 		
 		if(classOpt.isEmpty())
 			return new ResponseEntity<String>("ClassId"+id+ "not found", HttpStatus.NOT_FOUND);
 		
-		return new ResponseEntity<ClassName>(classOpt.get(),HttpStatus.OK);
+		return new ResponseEntity<YearClass>(classOpt.get(),HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/codeNo/{codeNo}")
 	public ResponseEntity<?> findByCodeNo(@PathVariable String codeNo){
-		Optional<ClassName> classOpt = classNameService.findByCodeNo(codeNo);
+		Optional<YearClass> classOpt = classNameService.findByCodeno(codeNo);
 		
 		if(classOpt.isEmpty())
 			return new ResponseEntity<String>("ClassId"+codeNo+ "not found", HttpStatus.NOT_FOUND);
 		
-		return new ResponseEntity<ClassName>(classOpt.get(),HttpStatus.OK);
+		return new ResponseEntity<YearClass>(classOpt.get(),HttpStatus.OK);
 		
 	}
 
 	
 	@PatchMapping("/update")
-	public ResponseEntity<?> updateClass(@RequestBody ClassName className){
-		ClassName updatedClass = classNameService.updateClass(className);
-		return new ResponseEntity<ClassName>(updatedClass,HttpStatus.OK);
+	public ResponseEntity<?> updateClass(@RequestBody YearClass className){
+		YearClass updatedClass = classNameService.updateClass(className);
+		return new ResponseEntity<YearClass>(updatedClass,HttpStatus.OK);
 		
 	}
 	@DeleteMapping("delete/{id}")

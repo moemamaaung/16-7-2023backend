@@ -5,8 +5,11 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+
 import com.tumdy.attendance.domain.Student;
+import com.tumdy.attendance.domain.YearClass;
 import com.tumdy.attendance.exception.RollnoAlreadyExistsException;
+import com.tumdy.attendance.repository.ClassNameRepository;
 import com.tumdy.attendance.repository.StudentRepository;
 import com.tumdy.attendance.service.StudentService;
 
@@ -18,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class StudentServiceImpl implements StudentService{
 	
 	private final StudentRepository studentRepo;
+	private final ClassNameRepository classNameRepository;
 
 	@Override
 	public List<Student> findAll() {
@@ -26,23 +30,29 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public Student createStudent(Student student) throws RollnoAlreadyExistsException{
+	public Student createStudent(Student student,Long classId) throws RollnoAlreadyExistsException{
 		Optional<Student> studentOpt = findByRollno(student.getRollno());
+		Optional<YearClass> classOpt = classNameRepository.findById(classId);
+		if(classOpt.isPresent()) {
+			YearClass className = classOpt.get();
+			className.getStudents().add(student);
+			student.setYearClass(className);
+		}
 		if(studentOpt.isPresent()) {
 			throw new RollnoAlreadyExistsException("Rollno already exists");
-			
 		}
 		return studentRepo.save(student);
 	}
 
 	@Override
-	public Student updateStudent(Student student)  {
+	public Student updateStudent(Student student,Long classId)  {
 		
-//		Optional<Student> studentOpt = findByRollno(student.getRollno());
-//		if(studentOpt.isPresent()) {
-//			throw new RollnoAlreadyExistsException("Rollno already exists");
-//			
-//		}
+		Optional<YearClass> classOpt = classNameRepository.findById(classId);
+		if(classOpt.isPresent()) {
+			YearClass className = classOpt.get();
+			className.getStudents().add(student);
+			student.setYearClass(className);
+		}
 		return studentRepo.save(student);
 	}
 

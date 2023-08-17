@@ -6,8 +6,12 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.tumdy.attendance.domain.Subject;
+import com.tumdy.attendance.domain.User;
+import com.tumdy.attendance.domain.YearClass;
 import com.tumdy.attendance.exception.CodenoAlreadyExistsException;
+import com.tumdy.attendance.repository.ClassNameRepository;
 import com.tumdy.attendance.repository.SubjectRepository;
+import com.tumdy.attendance.repository.UserRepository;
 import com.tumdy.attendance.service.SubjectService;
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +20,8 @@ import lombok.RequiredArgsConstructor;
 public class SubjectServiceImpl implements SubjectService{
 	
 	private final SubjectRepository subjectRepo;
+	private final ClassNameRepository classNameRepository;
+	private final UserRepository userRepo;
 
 	@Override
 	public List<Subject> findAll() {
@@ -24,9 +30,21 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 	@Override
-	public Subject createSubject(Subject subject) throws CodenoAlreadyExistsException{
+	public Subject createSubject(Subject subject,Long userId,Long classId) throws CodenoAlreadyExistsException{
 		
 		Optional<Subject> subjectOpt = findByCodeno(subject.getCodeno());
+		Optional<User> userOpt = userRepo.findById(userId);
+		Optional<YearClass> classOpt = classNameRepository.findById(classId);
+		if(classOpt.isPresent() && userOpt.isPresent()) {
+			
+			User user = userOpt.get();
+			user.getSubjects().add(subject);
+			subject.setUser(user);
+			
+			YearClass className = classOpt.get();
+			className.getSubjects().add(subject);
+			subject.setYearClass(className);
+		}
 		
 		if(subjectOpt.isPresent()) {
 			throw new CodenoAlreadyExistsException("Codeno already exists");
@@ -36,13 +54,19 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 	@Override
-	public Subject updateSubject(Subject subject) {
-//		Optional<Subject> subjectOpt = findByCodeno(subject.getCodeno());
-//		
-//		if(subjectOpt.isPresent()) {
-//			throw new CodenoAlreadyExistsException("Codeno already exists");
-//			
-//		}
+	public Subject updateSubject(Subject subject,Long userId,Long classId) {
+		Optional<YearClass> classOpt = classNameRepository.findById(classId);
+		Optional<User> userOpt = userRepo.findById(userId);
+		if(classOpt.isPresent() && userOpt.isPresent()) {
+			
+			User user = userOpt.get();
+			user.getSubjects().add(subject);
+			subject.setUser(user);
+			
+			YearClass className = classOpt.get();
+			className.getSubjects().add(subject);
+			subject.setYearClass(className);
+		}
 		return subjectRepo.save(subject);
 	}
 

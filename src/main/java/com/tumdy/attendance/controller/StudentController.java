@@ -33,17 +33,17 @@ public class StudentController {
 		return studentService.findAll();
 	}
 	
-	@PostMapping("/create")
-	public ResponseEntity<?> createStudent(@RequestBody Student student){
+	@PostMapping("/create/{classId}")
+	public ResponseEntity<?> createStudent(@RequestBody Student student,@PathVariable Long classId){
 		
-		Student savedStudent = studentService.createStudent(student);
+		Student savedStudent = studentService.createStudent(student, classId);
 		
 		return new ResponseEntity<Student>(savedStudent,HttpStatus.CREATED);
 	}
 	
-	@PatchMapping("/update")
-	public ResponseEntity<?> updateStudent(@RequestBody Student student){
-		Student updatedStudent = studentService.updateStudent(student);
+	@PatchMapping("/update/{classId}")
+	public ResponseEntity<?> updateStudent(@RequestBody Student student,@PathVariable Long classId){
+		Student updatedStudent = studentService.updateStudent(student, classId);
 		return new ResponseEntity<Student>(updatedStudent,HttpStatus.OK);
 	}
 	
