@@ -1,0 +1,732 @@
+{
+	"info": {
+		"_postman_id": "402c7e3b-6696-41a5-b329-fdb071465aa7",
+		"name": "Student Attendance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7338357"
+	},
+	"item": [
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "Create Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullname\":\"IT Department\",\r\n    \"username\":\"it.tumdyobo@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teacher",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzU4MCwiZXhwIjoxNjkyMzQwNTgwfQ.ElS8L4DFSQyDvGnjI-YRovB-di-iNB0AVyNnRg3H7YAHq7jI-N-xtJMBQ8MbQuuRjAbTdydsuvW3cswgZEcpgA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8585/api/user/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Teacher",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJBdW5nIEF1bmciLCJ1c2VybmFtZSI6ImF1bmdAZ21haWwuY29tIiwiaWF0IjoxNjkyMDYxODgyLCJleHAiOjE2OTIwNjQ4ODJ9.pwfxx3mQvm9SljH8qmYCOnRs5V5CEvpRIv-AzSIoVl9Gy3N3WpNyTPFRsRIDzhJovBCL0nXGsyy7rUs-Lb0cbA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 2,\r\n        \"fullname\": \"Phyu\",\r\n        \"phno\": null,\r\n        \"username\": \"p@gmail.com\",\r\n        \"position\": \"pppp\",\r\n        \"nrc\": \"fgg\",\r\n        \"gender\": \"Female\",\r\n        \"password\": \"$2a$10$8zzkVEQonjwrToWp49nq2ORp97LjowIfdkxj9nffs5io.vAI8LNDq\",\r\n        \"status\": \"Sent\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Teacher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8585/api/teacher/delete/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"teacher",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\":\"it.tumdyobo@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJNYSBNYSIsInVzZXJuYW1lIjoibWFtYUBnbWFpbC5jb20iLCJpYXQiOjE2OTIwODg2MTEsImV4cCI6MTY5MjA5MTYxMX0.u9sdphzMmaE_AlBKGIYi0E24dr72RUNU5ioS7Q4sM-KFBNuYy1SnydS_CLeYd33t0uprF8P1x5lKG4DxAruWHg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"fullname\": \"Phyu Phway\",\r\n        \"phno\": \"098765432\",\r\n        \"username\": \"pp@gmail.com\",\r\n        \"position\": \"qqqqqqqqqqqqqqqqq\",\r\n        \"nrc\": \"llllllllllllllllllllllll\",\r\n        \"gender\": \"Female\",\r\n        \"password\": \"1234\",\r\n        \"status\":\"Pending\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/user/updatePassword",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"user",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjI3MTk5NCwiZXhwIjoxNjkyMjc0OTk0fQ.qn788rnoUZORsUISRxx4OVeYJVdsU0Rs6crLLtw88cxCGAx_zXpcR-wsfmpysbSZUl-KL1GO4lbvwmwAsbkL4w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 2,\r\n        \"fullname\": \"Phyu\",\r\n        \"phno\": null,\r\n        \"username\": \"p@gmail.com\",\r\n        \"position\": \"fgfg\",\r\n        \"nrc\": \"fgg\",\r\n        \"gender\": \"Female\",\r\n        \"password\": \"$2a$10$8zzkVEQonjwrToWp49nq2ORp97LjowIfdkxj9nffs5io.vAI8LNDq\",\r\n        \"status\": \"Sent\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/user/updateStatus",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"user",
+								"updateStatus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject",
+			"item": [
+				{
+					"name": "Create Subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzk0NSwiZXhwIjoxNjkyMzQwOTQ1fQ.vmpMcYEpY_RTrHGrBEuwZnrRW8c6dyoG1qmwjjHOFtwLNBvwQPt8X7MLFNp_Z1a9IEwOP_JJ8Pqhmbgu7rkcEA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codeno\":\"117\",\r\n    \"name\":\"Crypto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/subject/create/1/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"subject",
+								"create",
+								"1",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Subject",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJNYSBNYSIsInVzZXJuYW1lIjoibWFtYUBnbWFpbC5jb20iLCJpYXQiOjE2OTE4NDg0NTYsImV4cCI6MTY5MTg1MTQ1Nn0.GeDqYgY7fowlMf24_qWRyEbvZpMc9SbDLWh-ekBB3qY40HG_LW0s6-0506hslUgCnO5C-ATlYNVt6YRLkE-oxg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8585/api/subject/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"subject",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subject",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"codeno\": \"117\",\r\n    \"name\": \"mama\",\r\n    \"teacher\": {\r\n        \"id\": 1,\r\n        \"fullname\": \"Mg Mg\",\r\n        \"phno\": \"098765434567\",\r\n        \"username\": \"mgmg@gmail.com\",\r\n        \"position\": \"Head\",\r\n        \"nrc\": \"9/kapata(n)76543\",\r\n        \"gender\": \"Male\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/subject/update/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"subject",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8585/api/subject/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"subject",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzk0NSwiZXhwIjoxNjkyMzQwOTQ1fQ.vmpMcYEpY_RTrHGrBEuwZnrRW8c6dyoG1qmwjjHOFtwLNBvwQPt8X7MLFNp_Z1a9IEwOP_JJ8Pqhmbgu7rkcEA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullname\":\"mama\",\r\n    \"rollno\":\"erkjfd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/student/create/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"student",
+								"create",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Student",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzk0NSwiZXhwIjoxNjkyMzQwOTQ1fQ.vmpMcYEpY_RTrHGrBEuwZnrRW8c6dyoG1qmwjjHOFtwLNBvwQPt8X7MLFNp_Z1a9IEwOP_JJ8Pqhmbgu7rkcEA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8585/api/student/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"student",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"fullname\": \"trfdssdfdfd\",\r\n    \"rollno\": \"ssd\",\r\n    \"phno\": \"09876543\",\r\n    \"address\": \"fdssadf\",\r\n    \"username\": \"sfj@gmail.com\",\r\n    \"fathername\": \"gfdfg\",\r\n    \"nrc\": \"dfgdfg\",\r\n    \"dob\": \"dfsfdsf\",\r\n    \"gender\": \"Female\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/student/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"student",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Semester",
+			"item": [
+				{
+					"name": "Create Semester",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzk0NSwiZXhwIjoxNjkyMzQwOTQ1fQ.vmpMcYEpY_RTrHGrBEuwZnrRW8c6dyoG1qmwjjHOFtwLNBvwQPt8X7MLFNp_Z1a9IEwOP_JJ8Pqhmbgu7rkcEA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"SemesterI\",\r\n    \"startdate\":\"1999-03-06\",\r\n    \"enddate\":\"1999-03-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/semester/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"semester",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Semester",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8585/api/semester/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"semester",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"name\": \"eeeee\",\r\n        \"startDate\": \"12-02-2023\",\r\n        \"endDate\": \"12-02-2023\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/semester/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"semester",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8585/api/semester/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"semester",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "Send Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\":\"pp@gmail.com\",\r\n    \"subject\":\"to test\",\r\n    \"text\":\"Email Testing for project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/email/contact",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"email",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "Create Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzk0NSwiZXhwIjoxNjkyMzQwOTQ1fQ.vmpMcYEpY_RTrHGrBEuwZnrRW8c6dyoG1qmwjjHOFtwLNBvwQPt8X7MLFNp_Z1a9IEwOP_JJ8Pqhmbgu7rkcEA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codeNo\":\"VIT\",\r\n    \"name\":\"FifthYear\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/class/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"class",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJra2tAZ21haWwuY29tIiwiaWF0IjoxNjkyMjAyNjE2LCJleHAiOjE2OTIyMDU2MTZ9.Bt1B-8yLX1yxF-XORoc3myxIu_suBCkBmNHM1ststlkAzVW7Jr38f0zFsU2eK11IsKHjUyzN5PDp_QxTZwevDw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8585/api/class/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"class",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accordion",
+			"item": [
+				{
+					"name": "Create Accordion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjI1MDE1NCwiZXhwIjoxNjkyMjUzMTU0fQ.QQzcIPKx8_T1yYeoscbp_tFWpeWiEmXCU9aQUQx5ixHaOEIfT_oPnBJdiQYeYzgt2KhcDoeDce_RuLzuP30sdA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subtimea\":\"AI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8585/api/accordion/create/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"accordion",
+								"create",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TimeTable",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJLIiwidXNlcm5hbWUiOiJrQGdtYWlsLmNvbSIsImlhdCI6MTY5MjMzNzk0NSwiZXhwIjoxNjkyMzQwOTQ1fQ.vmpMcYEpY_RTrHGrBEuwZnrRW8c6dyoG1qmwjjHOFtwLNBvwQPt8X7MLFNp_Z1a9IEwOP_JJ8Pqhmbgu7rkcEA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"className\":1,\r\n    \"subjectName\":1,\r\n    \"classDay\":\"Monday\",\r\n    \"classTime\":\"8:30-9:30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8585/api/timetable/create/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8585",
+					"path": [
+						"api",
+						"timetable",
+						"create",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
